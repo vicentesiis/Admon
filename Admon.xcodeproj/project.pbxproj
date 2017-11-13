@@ -7,25 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2260E1751FB9857A00B0915B /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1741FB9857A00B0915B /* ProductsTableViewController.swift */; };
+		2260E1771FB985A700B0915B /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1761FB985A700B0915B /* AddProductView.swift */; };
+		2260E1791FB9866400B0915B /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1781FB9866400B0915B /* UsersTableViewController.swift */; };
+		2260E17B1FB9890100B0915B /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E17A1FB9890100B0915B /* NewUserViewController.swift */; };
+		2260E17D1FB9893900B0915B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E17C1FB9893900B0915B /* HistoryTableViewController.swift */; };
+		2260E17F1FB9897100B0915B /* SellProductsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E17E1FB9897100B0915B /* SellProductsTableView.swift */; };
+		2260E1811FB9899A00B0915B /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1801FB9899A00B0915B /* ProductViewController.swift */; };
+		2260E1831FB98A0000B0915B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1821FB98A0000B0915B /* SettingsViewController.swift */; };
+		2260E1851FB98A1300B0915B /* ClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1841FB98A1300B0915B /* ClosureViewController.swift */; };
 		2267F2DD1FB5D71A0074ABA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F2DC1FB5D71A0074ABA4 /* AppDelegate.swift */; };
-		2267F2DF1FB5D71A0074ABA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F2DE1FB5D71A0074ABA4 /* ViewController.swift */; };
+		2267F2DF1FB5D71A0074ABA4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F2DE1FB5D71A0074ABA4 /* InitialViewController.swift */; };
 		2267F2E21FB5D71B0074ABA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2267F2E01FB5D71B0074ABA4 /* Main.storyboard */; };
 		2267F2E51FB5D71B0074ABA4 /* Admon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2267F2E31FB5D71B0074ABA4 /* Admon.xcdatamodeld */; };
 		2267F2E71FB5D71B0074ABA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2267F2E61FB5D71B0074ABA4 /* Assets.xcassets */; };
 		2267F2EA1FB5D71B0074ABA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2267F2E81FB5D71B0074ABA4 /* LaunchScreen.storyboard */; };
+		226F03261FB6CCB20099AD1E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F03251FB6CCB20099AD1E /* LoginViewController.swift */; };
+		226F03281FB6CCD30099AD1E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F03271FB6CCD30099AD1E /* RegisterViewController.swift */; };
+		226F032A1FB6CD720099AD1E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F03291FB6CD720099AD1E /* PrincipalViewController.swift */; };
 		679E5850BDFC84081DBD76A9 /* Pods_Admon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD9C5F192EBDD5114DB3B1 /* Pods_Admon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01BD9C5F192EBDD5114DB3B1 /* Pods_Admon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Admon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2260E1741FB9857A00B0915B /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
+		2260E1761FB985A700B0915B /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		2260E1781FB9866400B0915B /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		2260E17A1FB9890100B0915B /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		2260E17C1FB9893900B0915B /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		2260E17E1FB9897100B0915B /* SellProductsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellProductsTableView.swift; sourceTree = "<group>"; };
+		2260E1801FB9899A00B0915B /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		2260E1821FB98A0000B0915B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2260E1841FB98A1300B0915B /* ClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureViewController.swift; sourceTree = "<group>"; };
 		2267F2D91FB5D71A0074ABA4 /* Admon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Admon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2267F2DC1FB5D71A0074ABA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2267F2DE1FB5D71A0074ABA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2267F2DE1FB5D71A0074ABA4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		2267F2E11FB5D71B0074ABA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2267F2E41FB5D71B0074ABA4 /* Admon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Admon.xcdatamodel; sourceTree = "<group>"; };
 		2267F2E61FB5D71B0074ABA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2267F2E91FB5D71B0074ABA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2267F2EB1FB5D71B0074ABA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		226F03251FB6CCB20099AD1E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		226F03271FB6CCD30099AD1E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		226F03291FB6CD720099AD1E /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		922071833D26ADA1C51B47A1 /* Pods-Admon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Admon/Pods-Admon.debug.xcconfig"; sourceTree = "<group>"; };
 		9B6310BD2A479135CAF83153 /* Pods-Admon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Admon/Pods-Admon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,15 +87,59 @@
 		2267F2DB1FB5D71A0074ABA4 /* Admon */ = {
 			isa = PBXGroup;
 			children = (
+				229B53241FB68B5200EEEDF6 /* Controllers */,
+				229B53251FB68B6700EEEDF6 /* Utils */,
+				229B53231FB68B4900EEEDF6 /* Views */,
+				229B53221FB68B2200EEEDF6 /* Models */,
 				2267F2DC1FB5D71A0074ABA4 /* AppDelegate.swift */,
-				2267F2DE1FB5D71A0074ABA4 /* ViewController.swift */,
-				2267F2E01FB5D71B0074ABA4 /* Main.storyboard */,
 				2267F2E61FB5D71B0074ABA4 /* Assets.xcassets */,
-				2267F2E81FB5D71B0074ABA4 /* LaunchScreen.storyboard */,
 				2267F2EB1FB5D71B0074ABA4 /* Info.plist */,
 				2267F2E31FB5D71B0074ABA4 /* Admon.xcdatamodeld */,
 			);
 			path = Admon;
+			sourceTree = "<group>";
+		};
+		229B53221FB68B2200EEEDF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		229B53231FB68B4900EEEDF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2267F2E01FB5D71B0074ABA4 /* Main.storyboard */,
+				2267F2E81FB5D71B0074ABA4 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		229B53241FB68B5200EEEDF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2267F2DE1FB5D71A0074ABA4 /* InitialViewController.swift */,
+				226F03251FB6CCB20099AD1E /* LoginViewController.swift */,
+				226F03271FB6CCD30099AD1E /* RegisterViewController.swift */,
+				226F03291FB6CD720099AD1E /* PrincipalViewController.swift */,
+				2260E1741FB9857A00B0915B /* ProductsTableViewController.swift */,
+				2260E1761FB985A700B0915B /* AddProductView.swift */,
+				2260E1781FB9866400B0915B /* UsersTableViewController.swift */,
+				2260E17A1FB9890100B0915B /* NewUserViewController.swift */,
+				2260E17C1FB9893900B0915B /* HistoryTableViewController.swift */,
+				2260E17E1FB9897100B0915B /* SellProductsTableView.swift */,
+				2260E1801FB9899A00B0915B /* ProductViewController.swift */,
+				2260E1821FB98A0000B0915B /* SettingsViewController.swift */,
+				2260E1841FB98A1300B0915B /* ClosureViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		229B53251FB68B6700EEEDF6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		84A342A38D6214BD11A67137 /* Pods */ = {
@@ -224,7 +292,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2267F2DF1FB5D71A0074ABA4 /* ViewController.swift in Sources */,
+				2260E1811FB9899A00B0915B /* ProductViewController.swift in Sources */,
+				2260E1751FB9857A00B0915B /* ProductsTableViewController.swift in Sources */,
+				226F03261FB6CCB20099AD1E /* LoginViewController.swift in Sources */,
+				2260E17B1FB9890100B0915B /* NewUserViewController.swift in Sources */,
+				2260E1791FB9866400B0915B /* UsersTableViewController.swift in Sources */,
+				226F03281FB6CCD30099AD1E /* RegisterViewController.swift in Sources */,
+				2267F2DF1FB5D71A0074ABA4 /* InitialViewController.swift in Sources */,
+				2260E1771FB985A700B0915B /* AddProductView.swift in Sources */,
+				226F032A1FB6CD720099AD1E /* PrincipalViewController.swift in Sources */,
+				2260E1831FB98A0000B0915B /* SettingsViewController.swift in Sources */,
+				2260E17D1FB9893900B0915B /* HistoryTableViewController.swift in Sources */,
+				2260E17F1FB9897100B0915B /* SellProductsTableView.swift in Sources */,
+				2260E1851FB98A1300B0915B /* ClosureViewController.swift in Sources */,
 				2267F2E51FB5D71B0074ABA4 /* Admon.xcdatamodeld in Sources */,
 				2267F2DD1FB5D71A0074ABA4 /* AppDelegate.swift in Sources */,
 			);
@@ -367,6 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8P47JR3FHB;
 				INFOPLIST_FILE = Admon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vicentesiis.Admon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -383,6 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8P47JR3FHB;
 				INFOPLIST_FILE = Admon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vicentesiis.Admon;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import TextFieldEffects
 
-class ViewController: UIViewController {
-
+class InitialViewController: UIViewController {
+    
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        //  Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func buttonRegisterPressed(_ sender: Any) {
+        performSegue(withIdentifier: "segueNavegation", sender: Any?.self)
+    }
+    
 }
 
