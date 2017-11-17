@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  
 //
-//  Created by Vicente Cantu Garcia on 13/11/17.
+//  Created by Vicente Cantu Garcia on 16/11/17.
 //
 //
 

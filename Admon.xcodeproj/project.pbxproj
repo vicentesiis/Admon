@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2250CB821FB9B3C200CCB3F8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250CB7C1FB9B3C100CCB3F8 /* Product.swift */; };
-		2250CB831FB9B3C200CCB3F8 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250CB7D1FB9B3C100CCB3F8 /* User+CoreDataProperties.swift */; };
-		2250CB841FB9B3C200CCB3F8 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250CB7E1FB9B3C100CCB3F8 /* History.swift */; };
-		2250CB851FB9B3C200CCB3F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250CB7F1FB9B3C100CCB3F8 /* User.swift */; };
-		2250CB861FB9B3C200CCB3F8 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250CB801FB9B3C100CCB3F8 /* Product+CoreDataProperties.swift */; };
-		2250CB871FB9B3C200CCB3F8 /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250CB811FB9B3C100CCB3F8 /* History+CoreDataProperties.swift */; };
+		22449C541FBAF97F00585691 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22449C531FBAF97F00585691 /* ExtensionUIViewController.swift */; };
+		225B7E031FBDEFD000842583 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7DFB1FBDEFCF00842583 /* User.swift */; };
+		225B7E041FBDEFD000842583 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7DFC1FBDEFD000842583 /* Product.swift */; };
+		225B7E051FBDEFD000842583 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7DFD1FBDEFD000842583 /* List.swift */; };
+		225B7E061FBDEFD000842583 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7DFE1FBDEFD000842583 /* List+CoreDataProperties.swift */; };
+		225B7E071FBDEFD000842583 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7DFF1FBDEFD000842583 /* User+CoreDataProperties.swift */; };
+		225B7E081FBDEFD000842583 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7E001FBDEFD000842583 /* History.swift */; };
+		225B7E091FBDEFD000842583 /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7E011FBDEFD000842583 /* History+CoreDataProperties.swift */; };
+		225B7E0A1FBDEFD000842583 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B7E021FBDEFD000842583 /* Product+CoreDataProperties.swift */; };
 		2260E1751FB9857A00B0915B /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1741FB9857A00B0915B /* ProductsTableViewController.swift */; };
 		2260E1771FB985A700B0915B /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1761FB985A700B0915B /* AddProductView.swift */; };
 		2260E1791FB9866400B0915B /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E1781FB9866400B0915B /* UsersTableViewController.swift */; };
@@ -36,12 +39,15 @@
 
 /* Begin PBXFileReference section */
 		01BD9C5F192EBDD5114DB3B1 /* Pods_Admon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Admon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2250CB7C1FB9B3C100CCB3F8 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		2250CB7D1FB9B3C100CCB3F8 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2250CB7E1FB9B3C100CCB3F8 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		2250CB7F1FB9B3C100CCB3F8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		2250CB801FB9B3C100CCB3F8 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2250CB811FB9B3C100CCB3F8 /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		22449C531FBAF97F00585691 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		225B7DFB1FBDEFCF00842583 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		225B7DFC1FBDEFD000842583 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		225B7DFD1FBDEFD000842583 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		225B7DFE1FBDEFD000842583 /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		225B7DFF1FBDEFD000842583 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		225B7E001FBDEFD000842583 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		225B7E011FBDEFD000842583 /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		225B7E021FBDEFD000842583 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2260E1741FB9857A00B0915B /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		2260E1761FB985A700B0915B /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		2260E1781FB9866400B0915B /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
@@ -114,12 +120,14 @@
 		229B53221FB68B2200EEEDF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2250CB7E1FB9B3C100CCB3F8 /* History.swift */,
-				2250CB811FB9B3C100CCB3F8 /* History+CoreDataProperties.swift */,
-				2250CB7C1FB9B3C100CCB3F8 /* Product.swift */,
-				2250CB801FB9B3C100CCB3F8 /* Product+CoreDataProperties.swift */,
-				2250CB7F1FB9B3C100CCB3F8 /* User.swift */,
-				2250CB7D1FB9B3C100CCB3F8 /* User+CoreDataProperties.swift */,
+				225B7DFB1FBDEFCF00842583 /* User.swift */,
+				225B7DFF1FBDEFD000842583 /* User+CoreDataProperties.swift */,
+				225B7DFC1FBDEFD000842583 /* Product.swift */,
+				225B7E021FBDEFD000842583 /* Product+CoreDataProperties.swift */,
+				225B7E001FBDEFD000842583 /* History.swift */,
+				225B7E011FBDEFD000842583 /* History+CoreDataProperties.swift */,
+				225B7DFD1FBDEFD000842583 /* List.swift */,
+				225B7DFE1FBDEFD000842583 /* List+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +164,7 @@
 		229B53251FB68B6700EEEDF6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				22449C531FBAF97F00585691 /* ExtensionUIViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -310,26 +319,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2250CB841FB9B3C200CCB3F8 /* History.swift in Sources */,
+				22449C541FBAF97F00585691 /* ExtensionUIViewController.swift in Sources */,
 				2260E1811FB9899A00B0915B /* ProductViewController.swift in Sources */,
 				2260E1751FB9857A00B0915B /* ProductsTableViewController.swift in Sources */,
 				226F03261FB6CCB20099AD1E /* LoginViewController.swift in Sources */,
 				2260E17B1FB9890100B0915B /* NewUserViewController.swift in Sources */,
-				2250CB831FB9B3C200CCB3F8 /* User+CoreDataProperties.swift in Sources */,
 				2260E1791FB9866400B0915B /* UsersTableViewController.swift in Sources */,
+				225B7E051FBDEFD000842583 /* List.swift in Sources */,
+				225B7E091FBDEFD000842583 /* History+CoreDataProperties.swift in Sources */,
 				226F03281FB6CCD30099AD1E /* RegisterViewController.swift in Sources */,
-				2250CB821FB9B3C200CCB3F8 /* Product.swift in Sources */,
 				2267F2DF1FB5D71A0074ABA4 /* InitialViewController.swift in Sources */,
 				2260E1771FB985A700B0915B /* AddProductView.swift in Sources */,
-				2250CB871FB9B3C200CCB3F8 /* History+CoreDataProperties.swift in Sources */,
 				226F032A1FB6CD720099AD1E /* PrincipalViewController.swift in Sources */,
+				225B7E041FBDEFD000842583 /* Product.swift in Sources */,
 				2260E1831FB98A0000B0915B /* SettingsViewController.swift in Sources */,
+				225B7E0A1FBDEFD000842583 /* Product+CoreDataProperties.swift in Sources */,
 				2260E17D1FB9893900B0915B /* HistoryTableViewController.swift in Sources */,
+				225B7E081FBDEFD000842583 /* History.swift in Sources */,
 				2260E17F1FB9897100B0915B /* SellProductsTableView.swift in Sources */,
-				2250CB861FB9B3C200CCB3F8 /* Product+CoreDataProperties.swift in Sources */,
-				2250CB851FB9B3C200CCB3F8 /* User.swift in Sources */,
+				225B7E031FBDEFD000842583 /* User.swift in Sources */,
 				2260E1851FB98A1300B0915B /* ClosureViewController.swift in Sources */,
+				225B7E071FBDEFD000842583 /* User+CoreDataProperties.swift in Sources */,
 				2267F2E51FB5D71B0074ABA4 /* Admon.xcdatamodeld in Sources */,
+				225B7E061FBDEFD000842583 /* List+CoreDataProperties.swift in Sources */,
 				2267F2DD1FB5D71A0074ABA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

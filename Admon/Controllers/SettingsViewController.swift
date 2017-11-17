@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,12 +22,18 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func buttonLogoutUserPressed(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "user")
+        UserDefaults.standard.set(true, forKey: "adminLoggedOut")
     }
     
     @IBAction func buttonLogoutAdministratorPressed(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "adminLoggedOut")
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func buttonStartPresentationPressed(_ sender: Any) {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        alert(title: "Eliminación completada", message: "Favor de reiniciar la aplicación")
     }
     
     /*

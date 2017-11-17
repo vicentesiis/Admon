@@ -17,6 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if !UserDefaults.standard.bool(forKey: "admin"){
+            let rootController = storyboard.instantiateViewController(withIdentifier: "initialView")
+            if let window = self.window{
+                window.rootViewController = rootController
+            }
+        }else{
+            if !UserDefaults.standard.bool(forKey: "user"){
+                let rootController = storyboard.instantiateViewController(withIdentifier: "nativeLogin")
+                if let window = self.window{
+                    window.rootViewController = rootController
+                }
+            }else{
+                let rootController = storyboard.instantiateViewController(withIdentifier: "nativePrincipal")
+                if let window = self.window{
+                    window.rootViewController = rootController
+                }
+            }
+        }
         return true
     }
 

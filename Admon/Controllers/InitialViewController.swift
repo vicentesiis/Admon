@@ -19,16 +19,24 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       //  Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - IBActions
+
     @IBAction func buttonRegisterPressed(_ sender: Any) {
-        performSegue(withIdentifier: "segueNavegation", sender: Any?.self)
+        if validateValues(name: name.text!, lastName: lastName.text!, userName: userName.text!, password: password.text!){
+            UserDefaults.standard.setPersistentDomain(["name" : name.text!, "lastName" : lastName.text!, "userName" : userName.text!, "password" : password.text!], forName: "administratorData")
+            performSegue(withIdentifier: "segueNavegation", sender: Any?.self)
+            UserDefaults.standard.set(true, forKey: "admin")
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

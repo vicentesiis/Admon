@@ -2,7 +2,7 @@
 //  History+CoreDataProperties.swift
 //  
 //
-//  Created by Vicente Cantu Garcia on 13/11/17.
+//  Created by Vicente Cantu Garcia on 16/11/17.
 //
 //
 
@@ -19,25 +19,8 @@ extension History {
     @NSManaged public var closure: Bool
     @NSManaged public var date: NSDate?
     @NSManaged public var quantity: Int32
-    @NSManaged public var products: NSSet?
     @NSManaged public var users: NSSet?
-
-}
-
-// MARK: Generated accessors for products
-extension History {
-
-    @objc(addProductsObject:)
-    @NSManaged public func addToProducts(_ value: Product)
-
-    @objc(removeProductsObject:)
-    @NSManaged public func removeFromProducts(_ value: Product)
-
-    @objc(addProducts:)
-    @NSManaged public func addToProducts(_ values: NSSet)
-
-    @objc(removeProducts:)
-    @NSManaged public func removeFromProducts(_ values: NSSet)
+    @NSManaged public var lists: NSSet?
 
 }
 
@@ -55,5 +38,22 @@ extension History {
 
     @objc(removeUsers:)
     @NSManaged public func removeFromUsers(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for lists
+extension History {
+
+    @objc(addListsObject:)
+    @NSManaged public func addToLists(_ value: List)
+
+    @objc(removeListsObject:)
+    @NSManaged public func removeFromLists(_ value: List)
+
+    @objc(addLists:)
+    @NSManaged public func addToLists(_ values: NSSet)
+
+    @objc(removeLists:)
+    @NSManaged public func removeFromLists(_ values: NSSet)
 
 }
