@@ -8,7 +8,6 @@
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="history" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName="List" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="lists" inverseEntity="History" syncable="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="list" inverseEntity="Product" syncable="YES"/>
@@ -31,8 +30,8 @@
     </entity>
     <elements>
         <element name="History" positionX="198" positionY="-522" width="128" height="118"/>
-        <element name="Product" positionX="241" positionY="-153" width="128" height="118"/>
+        <element name="List" positionX="-11" positionY="-334" width="128" height="103"/>
+        <element name="Product" positionX="259" positionY="-153" width="128" height="118"/>
         <element name="User" positionX="439" positionY="-387" width="128" height="133"/>
-        <element name="List" positionX="18" positionY="-334" width="128" height="118"/>
     </elements>
 </model>

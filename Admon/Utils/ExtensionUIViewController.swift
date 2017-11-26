@@ -85,4 +85,14 @@ extension UIViewController{
         }
         return false
     }
+    // delete objects
+//    let fetchRequests = NSFetchRequest<NSManagedObject>(entityName: "Product")
+//    do {
+//    let arrayManagedObjects = try managedContext.fetch(fetchRequests)
+//    for dict in arrayManagedObjects{
+//    managedContext.delete(dict)
+//    }
+//    } catch (let error) {
+//    print(error.localizedDescription)
+//    }
 }

@@ -10,14 +10,16 @@ import UIKit
 
 class ProductsTableViewController: UITableViewController {
 
+    var lists = [List]()
+    var products = [Product]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.lists = fetchRequest(entity: "List") as! [List]
+        self.products = fetchRequest(entity: "Product") as! [Product]
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,71 +31,76 @@ class ProductsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return lists.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        for i in 0..<lists.count{
+            if section == i{
+                return lists[i].name
+            }
+        }
+        return ""
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
+        cell.textLabel?.text = products[indexPath.row].name
+        cell.detailTextLabel?.text = "$\(products[indexPath.row].price)"
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        for i in 0..<lists.count{
+            if section == i{
+                return predicateRequest(entity: "Product", format: "list.name == %@", predicate: lists[i].name!).count
+            }
+        }
         return 0
     }
     
     @IBAction func buttonCreateListPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Crear Lista", message: "Ingrese el nombre de la lista", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Nombre"
+        }
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alerts) in
+            let textField = (alert.textFields![0] as UITextField).text!
+            if textField != ""{
+                let fetch = self.fetchRequest(entity: "List") as! [List]
+                for list in fetch{
+                    if list.name! == textField {
+                        self.perform(#selector(self.messageErrorTextField), with: nil, afterDelay: 0.2)
+                        return
+                    }
+                }
+                let list = List(context: self.managedContext)
+                list.name = textField
+                do{
+                    try self.managedContext.save()
+                }catch (let error){
+                    print(error.localizedDescription)
+                }
+            }else{
+                self.perform(#selector(self.messageError), with: nil, afterDelay: 0.2)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    @objc func messageError(){
+        alert(title: "Error!", message: "Favor de llenar el campo de nombre")
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @objc func messageErrorTextField(){
+        alert(title: "Error!", message: "La lista ya esta agregada")
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    @IBAction func unWindToTableViewProductsCreate(segue: UIStoryboardSegue){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

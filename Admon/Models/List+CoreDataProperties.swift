@@ -17,7 +17,6 @@ extension List {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var category: String?
     @NSManaged public var products: NSSet?
     @NSManaged public var history: History?
     @NSManaged public var users: User?
