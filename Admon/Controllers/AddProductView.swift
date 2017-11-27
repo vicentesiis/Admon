@@ -20,11 +20,29 @@ class AddProductView: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var buttonList: UIButton!
     @IBOutlet weak var list: UILabel!
     @IBOutlet weak var viewInformation: UIView!
-
+    @IBOutlet weak var buttonUpdateOrAdd: UIButton!
+    @IBOutlet weak var buttonAddImage: UIButton!
+    
+    var product : Product?
     var picker = [List]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let product = self.product{
+            self.name.text = product.name
+            self.price.text = "\(product.price)"
+            self.quantity.text = "\(product.quantity)"
+            if let data = product.image{
+                if let image = UIImage(data: data as Data){
+                    self.imageProduct.image = image
+                    self.buttonAddImage.setTitle("Cambiar Imagen", for: .normal)
+                }
+            }
+            self.list.text = product.list?.name
+            self.buttonList.setTitle("Cambiar lista", for: .normal)
+            self.buttonUpdateOrAdd.setTitle("Actualizar", for: .normal)
+            self.title = "Modificar producto"
+        }
         listPicker.delegate = self
         listPicker.isHidden = true
         picker = self.fetchRequest(entity: "List") as! [List]
@@ -35,15 +53,7 @@ class AddProductView: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func addImage(_ sender: Any) {
-        if  UIImagePickerController.isSourceTypeAvailable(.camera){
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = true
-            imagePicker.setEditing(true, animated: true)
-            self.present(imagePicker, animated: true, completion: nil)
-        }
+        Utils.onAddPhoto(controller: self)
     }
     
     @IBAction func addList(_ sender: Any) {
@@ -53,44 +63,75 @@ class AddProductView: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func addProduct(_ sender: Any) {
-        let price = self.price.text
-        let quantity = self.quantity.text
+        let price : Double? = Double(self.price.text!)
+        let quantity : Int? = Int(self.quantity.text!)
         let name = self.name.text
-        if price!.isEmpty || quantity!.isEmpty || name!.isEmpty || list.text! == "Pulsa \"Agregar lista\""{
-            alert(title: "Error!", message: "Los campos nombre, precio, cantidad y lista son necesarios")
-        }else{
-            if Int(price!)! < 1 || Int(quantity!)! < 1{
-                alert(title: "Error!", message: "La cantidad y el precio deben ser mayores a 0")
+        if let product = self.product{
+            if (price == nil) || (quantity == nil) || name!.isEmpty || list.text! == "Pulsa \"Agregar lista\""{
+                alert(title: "Error!", message: "Los campos nombre, precio, cantidad y lista son necesarios")
             }else{
-                for product in fetchRequest(entity: "Product") as! [Product]{
-                    if product.name == name! {
-                        alert(title: "Error!", message: "El producto \(name!) ya existe")
-                        return
+                if price! < 1 || quantity! < 1{
+                    alert(title: "Error!", message: "La cantidad y el precio deben ser mayores a 0")
+                }else{
+                    if self.product?.name != name{
+                        for product in fetchRequest(entity: "Product") as! [Product]{
+                            if product.name == name! {
+                                alert(title: "Error!", message: "El producto \(name!) ya existe")
+                                return
+                            }
+                        }
+                    }
+                    product.name = name!
+                    product.price = Double(price!)
+                    product.quantity = Int32(quantity!)
+                    product.list = (predicateRequest(entity: "List", format: "name == %@", predicate: self.list.text!) as! [List])[0]
+                    if let image = imageProduct.image{
+                        if let dataImage = UIImageJPEGRepresentation(image, 1){
+                            product.image = dataImage as NSData?
+                        }
+                    }
+                    do{
+                        try managedContext.save()
+                        alert(title: "Bien!", message: "Se ha guardado correctamente el producto", segue: "unWindToTableViewProductsCreate")
+                        print(fetchRequest(entity: "Product"))
+                    }catch (let error){
+                        print(error.localizedDescription)
                     }
                 }
-                let list = List(context: managedContext)
-                for data in predicateRequest(entity: "List", format: "name == %@", predicate: self.list.text!) as! [List]{
-                    list.name = data.name
-                }
-                let product = Product(context: managedContext)
-                product.name = name!
-                product.price = Double(price!)!
-                product.quantity = Int32(quantity!)!
-                product.list = list
-                if let image = imageProduct.image{
-                    if let dataImage = UIImageJPEGRepresentation(image, 1){
-                        product.image = dataImage as NSData?
+            }
+        }else{
+            if (price == nil) || (quantity == nil) || name!.isEmpty || list.text! == "Pulsa \"Agregar lista\""{
+                alert(title: "Error!", message: "Los campos nombre, precio, cantidad y lista son necesarios")
+            }else{
+                if price! < 1 || quantity! < 1{
+                    alert(title: "Error!", message: "La cantidad y el precio deben ser mayores a 0")
+                }else{
+                    for product in fetchRequest(entity: "Product") as! [Product]{
+                        if product.name == name! {
+                            alert(title: "Error!", message: "El producto \(name!) ya existe")
+                            return
+                        }
                     }
-                }
-                do{
-                    try managedContext.save()
-                    alert(title: "Bien!", message: "Se ha guardado correctamente el producto", segue: "unWindToTableViewProductsCreate")
-                }catch (let error){
-                    print(error.localizedDescription)
+                    let product = Product(context: managedContext)
+                    product.name = name!
+                    product.price = Double(price!)
+                    product.quantity = Int32(quantity!)
+                    product.list = (predicateRequest(entity: "List", format: "name == %@", predicate: self.list.text!) as! [List])[0]
+                    if let image = imageProduct.image{
+                        if let dataImage = UIImageJPEGRepresentation(image, 1){
+                            product.image = dataImage as NSData?
+                        }
+                    }
+                    do{
+                        try managedContext.save()
+                        alert(title: "Bien!", message: "Se ha guardado correctamente el producto", segue: "unWindToTableViewProductsCreate")
+                        print(fetchRequest(entity: "Product"))
+                    }catch (let error){
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -98,14 +139,13 @@ class AddProductView: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let mediaType = info[UIImagePickerControllerMediaType] as! String
-        self.dismiss(animated: true, completion: nil)
-        if mediaType == kUTTypeImage as String{
-            if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
-                self.imageProduct.image = image
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            }
-        }
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageProduct.image = chosenImage
+        dismiss(animated:true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -124,5 +164,6 @@ class AddProductView: UIViewController, UIImagePickerControllerDelegate, UINavig
         list.text = picker[row].name!
         viewInformation.isHidden = false
         listPicker.isHidden = true
+        buttonList.setTitle("Cambiar lista", for: .normal)
     }
 }

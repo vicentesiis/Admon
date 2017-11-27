@@ -15,6 +15,9 @@ class ProductsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.lists = fetchRequest(entity: "List") as! [List]
         self.products = fetchRequest(entity: "Product") as! [Product]
         DispatchQueue.main.async {
@@ -45,6 +48,7 @@ class ProductsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
+        let products = (lists[indexPath.section].products)?.allObjects as! [Product]
         cell.textLabel?.text = products[indexPath.row].name
         cell.detailTextLabel?.text = "$\(products[indexPath.row].price)"
         return cell
@@ -57,6 +61,31 @@ class ProductsTableViewController: UITableViewController {
             }
         }
         return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "segueAddProduct", sender: ((lists[indexPath.section].products)?.allObjects as! [Product])[indexPath.row])
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            let product = (lists[indexPath.section].products)?.allObjects
+            if removeRequest(entity: "Product", format: "name == %@", predicate: (product as! [Product])[indexPath.row].name!){
+                alert(title: "Bien!", message: "El usuario ha sido eliminado correctamente")
+                self.tableView.reloadData()
+            }else{
+                alert(title: "Error!", message: "Ha ocurrido un problema")
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let PVC = segue.destination as! AddProductView
+        PVC.product = sender as? Product
     }
     
     @IBAction func buttonCreateListPressed(_ sender: Any) {
@@ -79,6 +108,8 @@ class ProductsTableViewController: UITableViewController {
                 list.name = textField
                 do{
                     try self.managedContext.save()
+                    self.lists.append(list)
+                    self.tableView.reloadData()
                 }catch (let error){
                     print(error.localizedDescription)
                 }
@@ -100,6 +131,14 @@ class ProductsTableViewController: UITableViewController {
     @IBAction func unWindToTableViewProductsCreate(segue: UIStoryboardSegue){
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func buttonAddProductPressed(_ sender: Any) {
+        if (fetchRequest(entity: "List") as! [List]).isEmpty{
+            alert(title: "Error!", message: "Agregue una lista primero")
+        }else{
+            performSegue(withIdentifier: "segueAddProduct", sender: nil)
         }
     }
     

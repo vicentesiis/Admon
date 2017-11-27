@@ -12,14 +12,28 @@ class ProductViewController: UIViewController {
 
     @IBOutlet weak var imageProduct: UIImageView!
     @IBOutlet weak var nameProduct: UILabel!
-    @IBOutlet weak var quantity: UITextField!
     @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var priceProduct: UILabel!
+    @IBOutlet weak var quantityProduct: UILabel!
+    @IBOutlet weak var quantityStepper: UIStepper!
+    @IBOutlet weak var quantityText: UILabel!
     
+    var product : Product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        quantityStepper.wraps = true
+        quantityStepper.autorepeat = true
+        quantityStepper.maximumValue = Double(product!.quantity)
+        if let data = product?.image{
+            if let image = UIImage(data: data as Data){
+                self.imageProduct.image = image
+            }
+        }
+        self.nameProduct.text = product?.name
+        self.quantityProduct.text = "Cantidad: \(String(describing: product!.quantity))"
+        self.priceProduct.text = "$\(String(describing: product!.price))"
+        self.totalPrice.text = "Cantidad total..."
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +48,8 @@ class ProductViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func stepperPressed(_ sender: Any) {
+        quantityText.text = String(Int(quantityText.text!)! + 1)
+        self.totalPrice.text = "Cantidad total: $\(String(product!.price * Double(quantityText.text!)!))"
     }
-    */
-
 }

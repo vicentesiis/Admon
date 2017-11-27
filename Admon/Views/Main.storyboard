@@ -76,7 +76,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Esta pantalla no volvera a aperecer, sea cuidadoso con sus datos." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-az-INi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Esta pantalla no volvera a aperecer, sea cuidadoso con sus datos." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-az-INi">
                                 <rect key="frame" x="16" y="503" width="240" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -384,7 +384,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="wox-Kq-pgG">
                                 <connections>
-                                    <segue destination="IsE-yj-MUw" kind="show" id="X88-A6-arJ"/>
+                                    <action selector="buttonAddProductPressed:" destination="DXH-oG-vFT" id="gGC-Du-1jF"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Lista" id="drV-Xz-4Vh">
@@ -394,6 +394,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="IsE-yj-MUw" kind="show" identifier="segueAddProduct" id="MeR-jl-e3S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzr-rg-4pT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -430,7 +433,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mI-tf-Rhz">
-                                        <rect key="frame" x="195" y="0.0" width="109" height="30"/>
+                                        <rect key="frame" x="183" y="0.0" width="121" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <state key="normal" title="Agregar imagen">
@@ -517,7 +520,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nuevo Producto" id="Csv-1w-eXA"/>
                     <connections>
+                        <outlet property="buttonAddImage" destination="7mI-tf-Rhz" id="ihJ-Fr-xWK"/>
                         <outlet property="buttonList" destination="twl-6s-Udt" id="XDp-Gg-nRK"/>
+                        <outlet property="buttonUpdateOrAdd" destination="14U-DT-umz" id="wXO-at-aY8"/>
                         <outlet property="imageProduct" destination="u1C-mF-Vdh" id="lzn-Bc-QI4"/>
                         <outlet property="list" destination="SDk-xx-4nI" id="pW7-Pl-hHt"/>
                         <outlet property="listPicker" destination="R5o-Xv-tGU" id="jVU-Sh-qBa"/>
@@ -572,18 +577,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YZv-Xh-leu">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YZv-Xh-leu">
                                 <rect key="frame" x="195" y="259" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="Dbg-G8-XKS" eventType="valueChanged" id="SFQ-gx-csF"/>
+                                </connections>
                             </stepper>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2nc-UT-vE5">
-                                <rect key="frame" x="98" y="259" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2my-fV-xeH">
+                                <rect key="frame" x="181" y="113" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0G-Y0-Dg7">
                                 <rect key="frame" x="181" y="145" width="123" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -619,6 +627,20 @@
                                     <action selector="sell:" destination="Dbg-G8-XKS" eventType="touchUpInside" id="pzZ-Du-2He"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbw-We-crD">
+                                <rect key="frame" x="181" y="174" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsn-30-WrZ">
+                                <rect key="frame" x="114" y="264" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7Pt-N9-6O2"/>
@@ -626,7 +648,10 @@
                     <connections>
                         <outlet property="imageProduct" destination="05o-x4-yp5" id="cHK-SA-R9J"/>
                         <outlet property="nameProduct" destination="2my-fV-xeH" id="L9Z-5i-VNR"/>
-                        <outlet property="quantity" destination="2nc-UT-vE5" id="UD2-5T-PoX"/>
+                        <outlet property="priceProduct" destination="z0G-Y0-Dg7" id="FGm-fS-bkM"/>
+                        <outlet property="quantityProduct" destination="tbw-We-crD" id="0r8-dQ-Nrx"/>
+                        <outlet property="quantityStepper" destination="YZv-Xh-leu" id="oHX-YP-rru"/>
+                        <outlet property="quantityText" destination="Vsn-30-WrZ" id="5FJ-h0-N2l"/>
                         <outlet property="totalPrice" destination="p4i-02-hmC" id="pe6-oU-E6s"/>
                     </connections>
                 </viewController>
@@ -643,24 +668,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UFr-ct-PkM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="productCell" textLabel="kpP-v8-2L1" detailTextLabel="fYx-mc-XYK" style="IBUITableViewCellStyleValue1" id="UFr-ct-PkM">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UFr-ct-PkM" id="NYz-eW-n40">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kpP-v8-2L1">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fYx-mc-XYK">
+                                            <rect key="frame" x="241" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Dbg-G8-XKS" kind="show" id="Mb9-GA-Ocg"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="PLG-M4-ZtI" id="ilH-gh-vFP"/>
                             <outlet property="delegate" destination="PLG-M4-ZtI" id="uEM-gm-TWG"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Venta" id="TND-aN-xLg"/>
+                    <connections>
+                        <segue destination="Dbg-G8-XKS" kind="show" identifier="segueSell" id="4ZN-ih-O32"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7L-Bz-AOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -956,6 +998,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="MMH-MN-4vq"/>
         <segue reference="8oP-YG-u7p"/>
-        <segue reference="oWD-ef-ZJW"/>
+        <segue reference="Csx-Mf-qso"/>
     </inferredMetricsTieBreakers>
 </document>
