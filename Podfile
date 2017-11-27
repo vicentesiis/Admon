@@ -6,8 +6,4 @@ target 'Admon' do
   use_frameworks!
 
   # Pods for Admon
-  pod 'Onboard', '~> 2.3'
-  pod 'Timepiece', '~> 1.3'
-  pod 'TextFieldEffects', '~> 1.4'
-  pod 'RealmSwift'
 end
